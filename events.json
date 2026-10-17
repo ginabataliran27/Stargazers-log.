@@ -1,23 +1,69 @@
-[
-  {
-    "name": "sindresorhus/awesome",
-    "url": "https://github.com/sindresorhus/awesome",
-    "description": "A curated list of awesome lists.",
-    "language": "Markdown",
-    "starred_at": "2025-02-14"
-  },
-  {
-    "name": "vercel/next.js",
-    "url": "https://github.com/vercel/next.js",
-    "description": "The React framework for production.",
-    "language": "JavaScript",
-    "starred_at": "2025-01-28"
-  },
-  {
-    "name": "microsoft/playwright",
-    "url": "https://github.com/microsoft/playwright",
-    "description": "Reliable end-to-end testing for modern web apps.",
-    "language": "TypeScript",
-    "starred_at": "2024-12-09"
-  }
-]
+{
+  "currency": "USD",
+  "opening_cash": 1200.00,
+  "categories": [
+    { "name": "Sales revenue", "type": "income" },
+    { "name": "Service revenue", "type": "income" },
+    { "name": "Interest income", "type": "income" },
+    { "name": "Other income", "type": "income" },
+    { "name": "Cost of goods sold", "type": "expense" },
+    { "name": "Payroll and wages", "type": "expense" },
+    { "name": "Rent and occupancy", "type": "expense" },
+    { "name": "Utilities", "type": "expense" },
+    { "name": "Office supplies", "type": "expense" },
+    { "name": "Software and subscriptions", "type": "expense" },
+    { "name": "Travel and transportation", "type": "expense" },
+    { "name": "Meals and entertainment", "type": "expense" },
+    { "name": "Marketing and advertising", "type": "expense" },
+    { "name": "Insurance", "type": "expense" },
+    { "name": "Professional and accounting fees", "type": "expense" },
+    { "name": "Repairs and maintenance", "type": "expense" },
+    { "name": "Shipping and postage", "type": "expense" },
+    { "name": "Bank and payment processing fees", "type": "expense" },
+    { "name": "Taxes and licenses", "type": "expense" },
+    { "name": "Interest expense", "type": "expense" },
+    { "name": "Miscellaneous expense", "type": "expense" }
+  ],
+  "transactions": [
+    {
+      "id": "sample-001",
+      "date": "2026-10-02",
+      "type": "income",
+      "category": "Service revenue",
+      "description": "Project retainer",
+      "staff": "Demo staff",
+      "amount": 1800.00,
+      "sample": true
+    },
+    {
+      "id": "sample-002",
+      "date": "2026-10-04",
+      "type": "expense",
+      "category": "Rent and occupancy",
+      "description": "Studio rent",
+      "staff": "Demo staff",
+      "amount": 950.00,
+      "sample": true
+    },
+    {
+      "id": "sample-003",
+      "date": "2026-10-07",
+      "type": "expense",
+      "category": "Software and subscriptions",
+      "description": "Monthly software plan",
+      "staff": "Demo staff",
+      "amount": 54.00,
+      "sample": true
+    },
+    {
+      "id": "sample-004",
+      "date": "2026-10-09",
+      "type": "income",
+      "category": "Sales revenue",
+      "description": "Product sale",
+      "staff": "Demo staff",
+      "amount": 425.00,
+      "sample": true
+    }
+  ]
+}
