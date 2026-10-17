@@ -3,27 +3,120 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A log of repositories I've starred.">
-    <title>Stargazers log</title>
+    <meta name="description" content="A browser-only expense ledger prototype for recording transactions and receipts.">
+    <title>Expense Ledger</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
   </head>
   <body>
     <main class="page">
       <header class="page-header">
-        <p class="eyebrow">A collection of good ideas</p>
-        <h1>Stargazers log</h1>
-        <p class="intro">A log of the repositories I've starred.</p>
+        <div>
+          <p class="eyebrow">Ledger · Cash basis</p>
+          <h1>Expense Ledger</h1>
+          <p class="intro">A clear view of money in, money out, and the receipts that go with it.</p>
+        </div>
+        <span class="demo-badge">Prototype</span>
       </header>
 
-      <section aria-labelledby="repositories-heading">
-        <div class="section-heading">
-          <h2 id="repositories-heading">Starred repositories</h2>
-          <p>Projects worth keeping an eye on.</p>
-        </div>
-        <p id="repository-status" class="status" role="status" aria-live="polite">Loading repositories…</p>
-        <ul id="repository-list" class="repository-list"></ul>
+      <aside class="privacy-notice" aria-label="Prototype privacy notice">
+        <strong>Demo only — not a private staff account.</strong>
+        <span>This static prototype has no sign-in, access controls, or shared storage. Entries and receipt files stay in this browser profile and are not backed up. Use sample data only; do not enter real financial or personal information.</span>
+      </aside>
+
+      <section class="summary-grid" aria-label="Ledger summary">
+        <article class="summary-card">
+          <p>Total income</p>
+          <strong id="total-income" aria-live="polite">—</strong>
+          <span>Recorded cash received</span>
+        </article>
+        <article class="summary-card expense-summary">
+          <p>Total expenses</p>
+          <strong id="total-expenses" aria-live="polite">—</strong>
+          <span>Recorded cash spent</span>
+        </article>
+        <article class="summary-card cash-summary">
+          <p>Cash on hand</p>
+          <strong id="cash-on-hand" aria-live="polite">—</strong>
+          <span>Opening balance + income − expenses</span>
+        </article>
       </section>
+
+      <section class="panel entry-panel" aria-labelledby="entry-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">New record</p>
+            <h2 id="entry-heading">Add a transaction</h2>
+          </div>
+        </div>
+        <form id="transaction-form">
+          <div class="form-grid">
+            <label>
+              Transaction type
+              <select id="transaction-type" name="type" required>
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+              </select>
+            </label>
+            <label>
+              Account category
+              <select id="transaction-category" name="category" required></select>
+            </label>
+            <label>
+              Amount
+              <span class="amount-input"><span id="currency-symbol" aria-hidden="true">USD</span><input name="amount" type="number" min="0.01" max="1000000000" step="0.01" placeholder="0.00" required></span>
+            </label>
+            <label>
+              Date
+              <input name="date" type="date" required>
+            </label>
+            <label class="description-field">
+              Description
+              <input name="description" type="text" maxlength="120" placeholder="What was this transaction for?" required>
+            </label>
+            <label>
+              Staff member <span class="label-note">(demo label only)</span>
+              <input name="staff" type="text" maxlength="60" placeholder="e.g. Demo staff" required>
+            </label>
+          </div>
+          <div class="form-actions">
+            <label class="receipt-picker">
+              <input id="receipt-input" name="receipt" type="file" accept="image/*,application/pdf">
+              <span aria-hidden="true">＋</span> Attach receipt
+            </label>
+            <span id="receipt-name" class="receipt-name">Optional · image or PDF, up to 5 MB</span>
+            <button class="submit-button" type="submit">Add transaction <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel ledger-panel" aria-labelledby="ledger-heading">
+        <div class="section-heading ledger-heading">
+          <div>
+            <p class="eyebrow">Your records</p>
+            <h2 id="ledger-heading">Recent transactions</h2>
+          </div>
+          <p id="ledger-count" class="ledger-count"></p>
+        </div>
+        <p id="ledger-status" class="ledger-status" role="status" aria-live="polite">Loading ledger…</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Staff</th>
+                <th scope="col">Receipt</th>
+                <th scope="col" class="amount-heading">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-list"></tbody>
+          </table>
+        </div>
+      </section>
+      <footer>Opening cash balance: <strong id="opening-balance">—</strong> <span>·</span> Sample records are marked “Sample”.</footer>
     </main>
   </body>
 </html>
