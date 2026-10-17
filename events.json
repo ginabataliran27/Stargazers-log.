@@ -1,0 +1,23 @@
+[
+  {
+    "name": "sindresorhus/awesome",
+    "url": "https://github.com/sindresorhus/awesome",
+    "description": "A curated list of awesome lists.",
+    "language": "Markdown",
+    "starred_at": "2025-02-14"
+  },
+  {
+    "name": "vercel/next.js",
+    "url": "https://github.com/vercel/next.js",
+    "description": "The React framework for production.",
+    "language": "JavaScript",
+    "starred_at": "2025-01-28"
+  },
+  {
+    "name": "microsoft/playwright",
+    "url": "https://github.com/microsoft/playwright",
+    "description": "Reliable end-to-end testing for modern web apps.",
+    "language": "TypeScript",
+    "starred_at": "2024-12-09"
+  }
+]
